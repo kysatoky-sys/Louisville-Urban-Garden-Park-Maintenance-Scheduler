@@ -1,0 +1,20 @@
+# Louisville Urban Garden & Park Maintenance Scheduler
+# Python 3.11+
+#
+# Install all dependencies with:
+#   pip install -r requirements.txt
+
+# Open-Meteo API client with built-in caching and retry (extract_transform.py)
+openmeteo-requests==0.3.3
+requests-cache==1.2.1
+retry-requests==2.0.0
+
+# Data processing (both scripts)
+pandas==2.2.3
+
+# Database connector (load.py)
+sqlalchemy==2.0.36
+psycopg2-binary==2.9.10
+
+# Environment variable management (load.py)
+python-dotenv==1.0.1
