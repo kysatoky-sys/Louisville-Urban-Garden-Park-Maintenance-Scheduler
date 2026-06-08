@@ -18,3 +18,19 @@ psycopg2-binary==2.9.10
 
 # Environment variable management (load.py)
 python-dotenv==1.0.1
+
+
+# ── Extract & Transform ────────────────────────────────────────────────────────
+openmeteo-requests==0.3.0
+requests-cache==1.2.1
+retry-requests==0.1.0
+pandas==2.2.3
+
+# ── Load ───────────────────────────────────────────────────────────────────────
+sqlalchemy==2.0.36
+psycopg2-binary==2.9.10
+python-dotenv==1.0.1
+
+# ── Dash Dashboard ─────────────────────────────────────────────────────────────
+dash==2.18.2
+plotly==5.24.1

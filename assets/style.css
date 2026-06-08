@@ -1,0 +1,439 @@
+/* ============================================================
+   Louisville Park Maintenance — Dashboard Styles
+   Aesthetic: Botanical field journal — warm parchment paper,
+   deep forest ink, copper-amber accents, JetBrains Mono data.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:         #f5f0e8;
+  --surface:    #faf7f2;
+  --surface2:   #ede8de;
+  --border:     #c8bfaa;
+  --border2:    #a09080;
+  --ink:        #1a2410;
+  --ink2:       #3d4a30;
+  --ink3:       #6b7a58;
+  --green:      #2d6a2d;
+  --green2:     #4a9e3f;
+  --green-bg:   #e8f2e8;
+  --amber:      #b06000;
+  --amber2:     #d4820a;
+  --amber-bg:   #fdf3e0;
+  --red:        #8b1a1a;
+  --red2:       #c0392b;
+  --red-bg:     #fde8e8;
+  --blue:       #1a4a6b;
+  --blue2:      #2980b9;
+  --white:      #ffffff;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  line-height: 1.65;
+  min-height: 100vh;
+}
+
+/* ── Scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--surface2); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ink3); }
+
+/* ══════════════════════════════════════════════════════
+   SHELL — sidebar + main
+   ══════════════════════════════════════════════════════ */
+
+.shell { display: flex; min-height: 100vh; }
+
+/* ── Sidebar ───────────────────────────────────────── */
+.sidebar {
+  width: 210px;
+  flex-shrink: 0;
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  z-index: 100;
+  border-right: 2px solid #2d4020;
+}
+
+/* Brand */
+.brand {
+  padding: 28px 20px 22px;
+  border-bottom: 1px solid #2d4020;
+}
+.brand-icon {
+  font-size: 28px;
+  color: var(--green2);
+  margin-bottom: 10px;
+  display: block;
+}
+.brand-title {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--bg);
+  line-height: 1.4;
+  white-space: pre-line;
+  letter-spacing: -0.01em;
+}
+.brand-sub {
+  font-size: 9px;
+  color: #6b7a58;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-top: 6px;
+}
+
+/* Nav */
+.sidebar-nav { padding: 14px 10px; flex: 1; }
+
+.nav-section-label {
+  font-size: 9px;
+  color: #4a5a38;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 8px 10px 6px;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 5px;
+  width: 100%;
+  background: none;
+  border: none;
+  color: #8aaa7a;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: left;
+  margin-bottom: 2px;
+  transition: background 0.13s, color 0.13s, border-color 0.13s;
+  border-left: 2px solid transparent;
+}
+.nav-btn:hover { background: #243318; color: var(--bg); }
+.nav-btn.active {
+  background: #1e2d14;
+  color: var(--green2);
+  border-left-color: var(--green2);
+}
+.nav-icon { font-size: 14px; width: 18px; text-align: center; opacity: 0.85; }
+
+/* Sidebar footer */
+.sidebar-foot {
+  padding: 14px 20px;
+  border-top: 1px solid #2d4020;
+  font-size: 10px;
+  color: #4a5a38;
+  line-height: 2;
+}
+
+/* ── Main content ──────────────────────────────────── */
+.main { margin-left: 210px; min-height: 100vh; }
+
+.page-content { animation: pageIn 0.2s ease both; }
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.page-body { padding: 32px 36px; }
+
+/* ══════════════════════════════════════════════════════
+   PAGE HEADER
+   ══════════════════════════════════════════════════════ */
+
+.page-header { margin-bottom: 28px; }
+
+.page-title {
+  font-family: 'Lora', serif;
+  font-size: 30px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.page-sub {
+  font-size: 11px;
+  color: var(--ink3);
+  margin-top: 5px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.page-rule {
+  height: 2px;
+  background: linear-gradient(to right, var(--green), var(--border) 60%, transparent);
+  margin-top: 18px;
+}
+
+/* ══════════════════════════════════════════════════════
+   KPI CARDS
+   ══════════════════════════════════════════════════════ */
+
+.kpi-strip {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+}
+
+.kpi-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  flex: 1;
+  min-width: 120px;
+  display: flex;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(26,36,16,0.06);
+}
+
+.kpi-accent {
+  width: 4px;
+  flex-shrink: 0;
+  background: var(--border2);
+}
+.kpi-accent.green  { background: var(--green2); }
+.kpi-accent.amber  { background: var(--amber2); }
+.kpi-accent.red    { background: var(--red2); }
+.kpi-accent.blue   { background: var(--blue2); }
+.kpi-accent.neutral{ background: var(--border2); }
+
+.kpi-body { padding: 14px 16px; }
+
+.kpi-label {
+  font-size: 9px;
+  color: var(--ink3);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 5px;
+}
+
+.kpi-value {
+  font-family: 'Lora', serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ink);
+}
+.kpi-value.green   { color: var(--green); }
+.kpi-value.amber   { color: var(--amber); }
+.kpi-value.red     { color: var(--red); }
+.kpi-value.blue    { color: var(--blue); }
+.kpi-value.neutral { color: var(--ink); }
+
+/* ══════════════════════════════════════════════════════
+   CONTROLS
+   ══════════════════════════════════════════════════════ */
+
+.controls-bar {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+.ctl-group { display: flex; flex-direction: column; gap: 5px; }
+.ctl-label {
+  font-size: 9px;
+  color: var(--ink3);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+/* Dash dropdown overrides */
+.dd .Select-control {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+  border-radius: 5px !important;
+  min-height: 34px !important;
+}
+.dd .Select-control:hover { border-color: var(--border2) !important; }
+.dd .Select-placeholder,
+.dd .Select-value-label,
+.dd .Select-input > input {
+  color: var(--ink2) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 12px !important;
+}
+.dd .Select-menu-outer {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+  border-radius: 5px !important;
+  box-shadow: 0 4px 12px rgba(26,36,16,0.12) !important;
+}
+.dd .Select-option {
+  background: var(--surface) !important;
+  color: var(--ink2) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 12px !important;
+}
+.dd .Select-option:hover,
+.dd .Select-option.is-focused {
+  background: var(--surface2) !important;
+  color: var(--ink) !important;
+}
+.dd .Select-multi-value-wrapper .Select-value {
+  background: var(--green-bg) !important;
+  border-color: var(--green2) !important;
+  color: var(--green) !important;
+  border-radius: 3px !important;
+  font-size: 11px !important;
+}
+.dd .Select-value-icon { color: var(--green) !important; }
+
+/* Date picker overrides */
+.date-picker .DateInput_input {
+  background: var(--surface) !important;
+  color: var(--ink2) !important;
+  border-bottom-color: var(--border) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 12px !important;
+  padding: 6px 8px !important;
+}
+.date-picker .DateRangePickerInput {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 5px !important;
+}
+.date-picker .DateRangePickerInput__withBorder {
+  border-radius: 5px !important;
+}
+
+/* ══════════════════════════════════════════════════════
+   CARDS & CHARTS
+   ══════════════════════════════════════════════════════ */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 4px rgba(26,36,16,0.05);
+}
+
+.chart-label {
+  font-size: 9px;
+  color: var(--ink3);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+/* Two-column grid */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+/* ══════════════════════════════════════════════════════
+   SCHEDULE CARDS
+   ══════════════════════════════════════════════════════ */
+
+.sched-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+  gap: 12px;
+}
+
+.sched-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--border2);
+  border-radius: 7px;
+  padding: 15px 16px;
+  box-shadow: 0 1px 3px rgba(26,36,16,0.06);
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.sched-card:hover {
+  box-shadow: 0 3px 10px rgba(26,36,16,0.1);
+  transform: translateY(-1px);
+}
+
+.sched-card.rec-recommended { border-left-color: #4a9e3f; }
+.sched-card.rec-deferred    { border-left-color: #d4820a; }
+.sched-card.rec-skipped     { border-left-color: #c0392b; }
+
+.sc-park {
+  font-family: 'Lora', serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.sc-meta {
+  font-size: 10px;
+  color: var(--ink3);
+  margin-bottom: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.sc-reason {
+  font-size: 11px;
+  color: var(--ink3);
+  margin-top: 8px;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+/* ══════════════════════════════════════════════════════
+   DATA TABLE OVERRIDES
+   ══════════════════════════════════════════════════════ */
+
+.dash-spreadsheet-container .dash-spreadsheet-inner td,
+.dash-spreadsheet-container .dash-spreadsheet-inner th {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 12px !important;
+}
+
+/* ══════════════════════════════════════════════════════
+   EMPTY STATE
+   ══════════════════════════════════════════════════════ */
+
+.empty-state {
+  padding: 64px 0;
+  text-align: center;
+  color: var(--ink3);
+  font-style: italic;
+  font-size: 13px;
+}
+
+/* ══════════════════════════════════════════════════════
+   RESPONSIVE — narrow screens
+   ══════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  .sidebar { width: 160px; }
+  .main { margin-left: 160px; }
+  .page-body { padding: 20px 18px; }
+}
